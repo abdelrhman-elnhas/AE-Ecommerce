@@ -1,18 +1,18 @@
 "use client"
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { ProductCard } from "@/app/components/ProductCard";
-import { Button } from "@/app/components/ui/button";
-import { Separator } from "@/app/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
+import { ProductCard } from "@/components/ProductCard";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, ShoppingCart, Share2, Star } from "lucide-react";
 import { useState } from "react";
-import { useSingleProduct } from "@/app/hooks/useSingleProduct";
-import { useProducts } from "@/app/hooks/useProducts";
-import { Product } from "@/app/types/types";
-import { useCartStore } from "@/app/store/cart";
-import { useWishlistStore } from "@/app/store/wishlist";
-import { copyUrl } from "@/app/utils/copyURL";
+import { useSingleProduct } from "@/(main)/hooks/useSingleProduct";
+import { useProducts } from "@/(main)/hooks/useProducts";
+import { Product } from "@/(main)/types/types";
+import { useCartStore } from "@/store/cart";
+import { useWishlistStore } from "@/store/wishlist";
+import { copyUrl } from "@/utils/copyURL";
 
 export default function ProductDetailsPage() {
     const params = useParams();

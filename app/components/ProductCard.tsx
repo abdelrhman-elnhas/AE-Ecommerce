@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Heart } from "lucide-react";
-import { Card, CardContent, CardFooter } from "@/app/components/ui/card";
-import { Product } from "../types/types";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Product } from "../(main)/types/types";
 import { useCartStore } from "../store/cart";
 import { useWishlistStore } from "../store/wishlist";
 

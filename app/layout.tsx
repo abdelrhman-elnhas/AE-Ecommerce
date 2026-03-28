@@ -1,49 +1,9 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/app/components/Navbar";
-import { Footer } from "@/app/components/Footer";
-import { QueryClientWrapper } from "@/app/components/QueryClientWrapper";
-import NextAuthProvider from "./providers/NextAuthProvider";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "AE Ecommerce",
-  description: "AE Ecommerce Website built with Next.js, TypeScript, Tailwind CSS, and NextAuth.js for authentication.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <NextAuthProvider>
-          <QueryClientWrapper>
-            <Navbar />
-            <main className="flex-1 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-              {children}
-            </main>
-            <Footer />
-          </QueryClientWrapper>
-        </NextAuthProvider>
-
-      </body>
+      <body>{children}</body>
     </html>
-  );
+  )
 }

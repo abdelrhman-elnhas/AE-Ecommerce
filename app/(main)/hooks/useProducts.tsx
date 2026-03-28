@@ -1,5 +1,5 @@
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { fetchProducts } from "../services/fetchProducts";
+import { fetchProducts } from "../../services/fetchProducts";
 
 export const useProducts = ({
     page = 1,

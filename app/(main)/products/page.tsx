@@ -1,15 +1,15 @@
 "use client"
-import { ProductCard } from "@/app/components/ProductCard";
-import { Button } from "@/app/components/ui/button";
-import { Slider } from "@/app/components/ui/slider";
-import { Checkbox } from "@/app/components/ui/checkbox";
-import { Separator } from "@/app/components/ui/separator";
+import { ProductCard } from "@/components/ProductCard";
+import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Separator } from "@/components/ui/separator";
 import { Category, Product } from "../types/types";
 import { useCategories } from "../hooks/useCategories";
 import { useProducts } from "../hooks/useProducts";
 import { useRouter, useSearchParams } from "next/navigation";
 import PaginationSection
-    from "../components/PaginationSection";
+    from "@/components/PaginationSection";
 
 
 const PRODUCTS_PER_PAGE = 5

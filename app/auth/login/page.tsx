@@ -1,13 +1,13 @@
 "use client"
 import Link from "next/link";
-import { Button } from "@/app/components/ui/button";
-import { Input } from "@/app/components/ui/input";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { Separator } from "@/app/components/ui/separator";
-import SignInWithGoogle from "@/app/components/SignInWithGoogle";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import SignInWithGoogle from "@/components/SignInWithGoogle";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
-import { LoginInput, loginSchema } from "@/app/validators/auth.schema";
+import { LoginInput, loginSchema } from "@/validators/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 

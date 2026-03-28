@@ -1,10 +1,10 @@
 "use client"
 import Link from "next/link";
-import { Button } from "@/app/components/ui/button";
-import { Input } from "@/app/components/ui/input";
-import { Separator } from "@/app/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { Trash2, Minus, Plus } from "lucide-react";
-import { useCartStore } from "../store/cart";
+import { useCartStore } from "../../store/cart";
 import { useState } from "react";
 
 export default function CartPage() {
@@ -21,7 +21,7 @@ export default function CartPage() {
                 <div className="lg:col-span-2 space-y-4">
                     {cart.map((item, idx) => (
                         <div key={idx} className="flex gap-4 p-4 border rounded-xl bg-white dark:bg-slate-900">
-                            <div className="h-24 w-24 bg-slate-100 rounded-md overflow-hidden flex-shrink-0">
+                            <div className="h-24 w-24 bg-slate-100 rounded-md overflow-hidden shrink-0">
                                 <img src={item.images?.[0]} alt={item.title} className="w-full h-full object-cover mix-blend-multiply" />
                             </div>
                             <div className="flex-1 flex flex-col justify-between">
@@ -46,7 +46,7 @@ export default function CartPage() {
                                         >
                                             -
                                         </button>
-                                        <span className="px-6 py-2 font-medium min-w-[3.5rem] text-center">
+                                        <span className="px-6 py-2 font-medium min-w-14 text-center">
                                             {item.quantity}
                                         </span>
                                         <button

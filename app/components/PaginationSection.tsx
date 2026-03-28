@@ -5,7 +5,7 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from "@/app/components/ui/pagination"
+} from "@/components/ui/pagination"
 import { useSearchParams } from "next/navigation"
 
 type Props = {

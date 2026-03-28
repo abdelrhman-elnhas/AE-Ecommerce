@@ -3,7 +3,7 @@ import { withAuth } from "next-auth/middleware";
 import { getSession } from "next-auth/react";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     const isAuth = await getToken({ req: request });

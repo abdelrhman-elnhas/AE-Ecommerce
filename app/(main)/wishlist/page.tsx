@@ -1,8 +1,8 @@
 "use client"
 import Link from "next/link";
-import { ProductCard } from "@/app/components/ProductCard";
-import { useWishlistStore } from "../store/wishlist";
-import { Button } from "../components/ui/button";
+import { ProductCard } from "@/components/ProductCard";
+import { useWishlistStore } from "../../store/wishlist";
+import { Button } from "../../components/ui/button";
 
 export default function WishlistPage() {
 

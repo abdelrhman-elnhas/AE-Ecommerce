@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getProductsByCategoryId } from "../services/getProductsByCategoryId"
+import { getProductsByCategoryId } from "../../services/getProductsByCategoryId"
 
 
 export const useProductsByCategoryId = (id: number) => {

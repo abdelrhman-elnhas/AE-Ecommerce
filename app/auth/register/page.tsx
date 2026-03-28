@@ -1,15 +1,15 @@
 "use client"
 import Link from "next/link";
-import { Button } from "@/app/components/ui/button";
-import { Input } from "@/app/components/ui/input";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { Separator } from "@/app/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterInput, registerSchema } from "@/app/validators/auth.schema";
+import { RegisterInput, registerSchema } from "@/validators/auth.schema";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import uploadToCloudinary from "@/app/services/uploadToCloudinary";
+import uploadToCloudinary from "@/services/uploadToCloudinary";
 
 export default function RegisterPage() {
     const router = useRouter();

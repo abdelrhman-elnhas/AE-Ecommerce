@@ -3,9 +3,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ProductCard } from "@/app/components/ProductCard";
-import { SectionHeader } from "@/app/components/SectionHeader";
-import { Button } from "@/app/components/ui/button";
+import { ProductCard } from "@/components/ProductCard";
+import { SectionHeader } from "@/components/SectionHeader";
+import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
 import {
   Carousel,
@@ -13,7 +13,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/app/components/ui/carousel";
+} from "@/components/ui/carousel";
 import { useProducts } from "./hooks/useProducts";
 import { useCategories } from "./hooks/useCategories";
 import { Category, Product } from "./types/types";
@@ -45,7 +45,7 @@ export default function Home() {
             </div>
             <div className="lg:col-span-7 flex justify-center relative">
               {/* Placeholder for Hero Image */}
-              <div className="relative w-full h-[300px] md:h-[400px]">
+              <div className="relative w-full h-75 md:h-100">
                 <Image
                   src="https://images.unsplash.com/photo-1573855619003-97b4799dcd8b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Fashion Sale"
