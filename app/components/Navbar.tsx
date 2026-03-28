@@ -1,3 +1,6 @@
+
+
+
 "use client"
 import Link from "next/link";
 import { Search, ShoppingCart, Heart, User, Menu, Bell } from "lucide-react";
@@ -21,22 +24,19 @@ import {
 import { useCartStore } from "../store/cart";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export function Navbar() {
-
+function NavbarContent() {
     const { cart } = useCartStore();
     const session = useSession();
-
     const router = useRouter();
     const searchParams = useSearchParams();
-
     const [value, setValue] = useState(searchParams.get("search") || "");
 
     const handleSearch = () => {
         const params = new URLSearchParams(searchParams.toString());
         params.set("search", value);
-        params.set("page", "1"); // reset pagination
+        params.set("page", "1");
         router.push(`/products?${params.toString()}`);
     };
 
@@ -174,5 +174,13 @@ export function Navbar() {
                 </div>
             </div>
         </header>
+    );
+}
+
+export function Navbar() {
+    return (
+        <Suspense fallback={null}>
+            <NavbarContent />
+        </Suspense>
     );
 }

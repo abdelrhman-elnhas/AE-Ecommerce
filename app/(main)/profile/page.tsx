@@ -6,14 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { User, Package, LogOut } from "lucide-react";
 import { getSession, signOut, useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ProfileInput, profileSchema } from "../../validators/auth.schema";
 
-
-export default function ProfilePage() {
+function ProfileContent() {
     const session = useSession();
     const user = session?.data?.user;
     const [isEditing, setIsEditing] = useState(true);
@@ -194,4 +193,12 @@ export default function ProfilePage() {
             </div >
         </div >
     );
+}
+
+export default function ProfilePage() {  
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProfileContent />
+    </Suspense>
+  )
 }

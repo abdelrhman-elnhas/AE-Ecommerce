@@ -10,12 +10,13 @@ import { useProducts } from "../hooks/useProducts";
 import { useRouter, useSearchParams } from "next/navigation";
 import PaginationSection
     from "@/components/PaginationSection";
+import { Suspense } from "react";
 
 
 const PRODUCTS_PER_PAGE = 5
 
 
-export default function ProductsPage() {
+function ProductsContent() {
 
     const searchParams = useSearchParams()
     const router = useRouter();
@@ -44,7 +45,7 @@ export default function ProductsPage() {
         <div className="mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Sidebar Filters */}
-                <aside className="w-full md:w-64 space-y-6 flex-shrink-0">
+                <aside className="w-full md:w-64 space-y-6 shrink-0">
                     <div>
                         <h3 className="font-bold mb-4">Categories</h3>
                         <div className="space-y-2">
@@ -98,7 +99,7 @@ export default function ProductsPage() {
 
                     {
                         products?.length == 0 ? (
-                            <div className="mt-8 flex justify-center bg-slate-800 text-center h-[50px]">
+                            <div className="mt-8 flex justify-center bg-slate-800 text-center h-12.5">
                                 <p className="text-white m-auto text-xl uppercase">There is no products in this category yet.</p>
                             </div>
                         ) : <div className="mt-8 flex justify-center">
@@ -109,4 +110,12 @@ export default function ProductsPage() {
             </div>
         </div>
     );
+}
+
+export default function ProductsPage() {  
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsContent />
+    </Suspense>
+  )
 }

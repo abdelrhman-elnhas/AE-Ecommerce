@@ -1,3 +1,4 @@
+"use client"
 import {
     Pagination,
     PaginationContent,
@@ -7,6 +8,7 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination"
 import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
 
 type Props = {
     totalPages: number
@@ -14,16 +16,13 @@ type Props = {
 
 const PRODUCTS_PER_PAGE = 5
 
-const PaginationSection = ({ totalPages }: Props) => {
+function PaginationContent_({ totalPages }: Props) {
     const searchParams = useSearchParams()
-
     const currentPage = Number(searchParams.get("page")) || 1
 
     const createPageURL = (page: number) => {
         const params = new URLSearchParams(searchParams.toString())
-
         params.set("page", page.toString())
-
         return `/products?${params.toString()}`
     }
 
@@ -32,17 +31,14 @@ const PaginationSection = ({ totalPages }: Props) => {
     return (
         <Pagination>
             <PaginationContent>
-                {/* Previous */}
                 {currentPage > 1 && (
                     <PaginationItem>
                         <PaginationPrevious href={createPageURL(currentPage - 1)} />
                     </PaginationItem>
                 )}
 
-                {/* Pages */}
                 {Array.from({ length: totalPages }, (_, i) => {
                     const page = i + 1
-
                     return (
                         <PaginationItem key={page}>
                             <PaginationLink
@@ -55,17 +51,9 @@ const PaginationSection = ({ totalPages }: Props) => {
                     )
                 })}
 
-                {/* Pages */}
-                <div className="mt-8 flex justify-center">
-                    <PaginationSection totalPages={PRODUCTS_PER_PAGE} />
-                </div>
-
-                {/* Next */}
                 {currentPage < totalPages && (
                     <PaginationItem>
-                        <PaginationNext
-                            href={createPageURL(currentPage + 1)}
-                        />
+                        <PaginationNext href={createPageURL(currentPage + 1)} />
                     </PaginationItem>
                 )}
             </PaginationContent>
@@ -73,4 +61,10 @@ const PaginationSection = ({ totalPages }: Props) => {
     )
 }
 
-export default PaginationSection
+export default function PaginationSection({ totalPages }: Props) {
+    return (
+        <Suspense fallback={null}>
+            <PaginationContent_ totalPages={totalPages} />
+        </Suspense>
+    )
+}
